@@ -159,5 +159,21 @@ public class GameTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void shouldFindNoWinners() {
+
+        game.register(player1);
+        game.register(player2);
+        game.register(player3);
+        game.register(player4);
+        game.register(player5);
+
+        game.round(player2.getName(), player5.getName());
+
+        int expected = 0;
+        int actual = game.round(player2.getName(), player5.getName());
+
+        Assertions.assertEquals(expected, actual);
+    }
 }
 
