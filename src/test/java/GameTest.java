@@ -2,11 +2,15 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GameTest {
 
     Game game = new Game();
+
+    HashMap<String, Player> players = new HashMap<>();
+
     Player player1 = new Player(100, "Anna", 300);
     Player player2 = new Player(200, "Nik", 450);
     Player player3 = new Player(240, "Henry", 470);
@@ -15,8 +19,6 @@ public class GameTest {
 
     @Test
     public void shouldRegisterPlayers() {
-
-        List<Player> players = new ArrayList<>();
 
         game.register(player1);
         game.register(player2);
@@ -29,7 +31,6 @@ public class GameTest {
     @Test
     public void shouldFindPlayerByName() {
 
-        List<Player> players = new ArrayList<>();
 
         game.register(player1);
         game.register(player2);
