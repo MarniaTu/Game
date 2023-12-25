@@ -1,19 +1,21 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Game {
 
-    List<Player> players = new ArrayList<>();
+    HashMap<String, Player> players = new HashMap<>();
 
     public void register(Player player) {
 
-        players.add(player);
+        players.put(player.getName(), player);
     }
 
     public Player findPlayerByName(String playerName) {
-        for (Player player : players) {
-            if (player.getName().equals(playerName)) {
-                return player;
+        for (String key : players.keySet()) {
+            Player value = players.get(key);
+            if (value.getName().equals(playerName)) {
+                return value;
             }
         }
         return null;
@@ -21,9 +23,10 @@ public class Game {
 
     public int findStrength(String playerName) {
         int strength;
-        for (Player player : players) {
-            if (player.getName().equals(playerName)) {
-                return strength = player.getStrength();
+        for (String key : players.keySet()) {
+            Player value = players.get(key);
+            if (value.getName().equals(playerName)) {
+                return strength = value.getStrength();
             }
         }
         return -1;
